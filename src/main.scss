@@ -1,6 +1,115 @@
 @import './reset';
 
-body {
+html, body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
+}
+
+$space: 1rem;
+
+.main-container {
+  $height-offset: $space * 2;
+
+  padding: $space;
+  min-height: calc(100vh - #{ $height-offset });
+  background-color: #efefef;
+}
+
+.card-board {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.hero-card-wrapper {
+  margin-bottom: 1rem;
+}
+
+.hero-card {
+  $common-border-radius: 0.4rem;
+
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  height: 18rem;
+  background-color: #fff;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  box-shadow: 0 0 20px -10px rgba(0,0,0,0.3);
+  transition: transform 140ms ease-out;
+
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .hero-title {
+    font-weight: bold;
+  }
+
+  .hero-info {
+    font-size: 0.8rem;
+  }
+
+  .hero-detail {
+    text-transform: capitalize;
+    line-height: 1.2;
+  }
+
+  .hero-poster {
+    position: relative;
+    height: 100%;
+    z-index: 1;
+
+    .hero-poster-image {
+      border-radius: $common-border-radius;
+    }
+
+    .hero-poster-header {
+      padding: 0.4rem;
+      text-align: right;
+
+      button {
+        position: relative;
+        z-index: 100;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 0.4rem;
+    border-radius: $common-border-radius;
+    transform: translateY(calc(100% - 5rem));
+    transition: transform 200ms ease-in;
+
+    .hero-movies {
+      position: absolute;
+      overflow-y: scroll;
+      max-height: 125px;
+      transform: translateY(120%);
+      transition: transform 100ms ease-in;
+      font-size: 0.8rem;
+    }
+
+    &.show {
+      transform: translateY(20%);
+
+      .hero-movies {
+        transform: translateY(1rem);
+      }
+    }
+  }
 }

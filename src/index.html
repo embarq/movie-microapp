@@ -4,10 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="./main.scss">
 </head>
 <body>
-  <div id="app-root"></div>
+  <div id="app-root">
+    <div class="container-fluid main-container">
+      <button id="toggle-all-overlays">Toggle all</button>
+      <div class="row" id="hero-list">
+
+      </div>
+    </div>
+  </div>
+
+  <template id="hero-card-template">
+    <div class="col-2 hero-card-wrapper">
+      <div class="hero-card">
+        <div class="hero-poster">
+          <div class="hero-poster-header">
+            <button data-action="toggle-overlay">X</button>
+          </div>
+          <!-- <div class="hero-poster-footer">
+            <h2 class="hero-title">
+              <span class="hero-detail" data-hero-property="name">
+                <span class="hero-detail-value"></span>
+              </span>
+              <span class="hero-detail" data-hero-property="realName">
+                - <span class="hero-detail-value"></span>
+              </span>
+            </h2>
+            <p class="hero-subtitle">
+              <span class="hero-detail" data-hero-property="actors">
+                <span class="hero-detail-value"></span>
+              </span>
+            </p>
+            <p class="hero-info">
+              <span class="hero-detail" data-hero-property="genger">
+                <span class="hero-detail-value"></span> •
+              </span>
+              <span class="hero-detail" data-hero-property="species">
+                <span class="hero-detail-value"></span> •
+              </span>
+              <span class="hero-detail" data-hero-property="citizenship">
+                <span class="hero-detail-value"></span> •
+              </span>
+              <span class="hero-detail" data-hero-property="status">
+                <span class="hero-detail-value"></span>
+              </span>
+            </p>
+          </div> -->
+        </div>  <!-- hero-poster -->
+
+        <div class="hero-overlay">
+          <h2 class="hero-title">
+            <span class="hero-detail" data-hero-property="name">
+              <span class="hero-detail-value"></span>
+            </span>
+            <span class="hero-detail" data-hero-property="realName">
+              - <span class="hero-detail-value"></span>
+            </span>
+          </h2>
+          <p class="hero-subtitle">
+            <span class="hero-detail" data-hero-property="actors">
+              <span class="hero-detail-value"></span>
+            </span>
+          </p>
+          <p class="hero-info">
+            <span class="hero-detail" data-hero-property="genger">
+              <span class="hero-detail-value"></span> •
+            </span>
+            <span class="hero-detail" data-hero-property="species">
+              <span class="hero-detail-value"></span> •
+            </span>
+            <span class="hero-detail" data-hero-property="citizenship">
+              <span class="hero-detail-value"></span> •
+            </span>
+            <span class="hero-detail" data-hero-property="status">
+              <span class="hero-detail-value"></span>
+            </span>
+          </p>
+          <div class="hero-movies">
+            <h4>Movies</h4>
+            <ul data-hero-property="movies" data-hero-property-type="list">
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </template>
+
   <script src="main.js"></script>
 </body>
 </html>
