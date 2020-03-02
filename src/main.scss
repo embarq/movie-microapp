@@ -15,6 +15,74 @@ $space: 1rem;
   background-color: #efefef;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+
+    h1 {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .gg-shape-rhombus {
+      margin-right: 0.5rem;
+    }
+  }
+
+  #movie-filter {
+    flex: 1;
+  }
+
+  footer h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .options-list {
+    .options-item {
+      padding: 0.4rem 0;
+    }
+  }
+
+  .reset-filters-btn {
+    margin-left: 1.4rem;
+    background-color: #fff;
+    border: none;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    color: #555;
+    transition: color 100ms ease, box-shadow 100ms ease-in-out;
+
+    &:hover {
+      color: #222;
+      cursor: pointer;
+      box-shadow: 0 0.2rem 1rem -0.4rem rgba(0,0,0,0.4)
+    }
+  }
+}
+
+#movie-filter {
+  .filter-entry {
+    padding: 0.2rem 0;
+  }
+}
+
 .card-board {
   display: flex;
   flex-flow: wrap;
@@ -22,6 +90,10 @@ $space: 1rem;
 
 .hero-card-wrapper {
   margin-bottom: 1rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .hero-card {
@@ -32,7 +104,7 @@ $space: 1rem;
   overflow: hidden;
   height: 18rem;
   background-color: #fff;
-  background-position: center;
+  background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 8px;
@@ -40,7 +112,7 @@ $space: 1rem;
   transition: transform 140ms ease-out;
 
   &:hover {
-    transform: scale(1.1);
+    // transform: scale(1.1);
     cursor: pointer;
   }
 
@@ -81,6 +153,21 @@ $space: 1rem;
     }
   }
 
+  .toggle-overlay-btn {
+    --ggs: 1.2;
+    display: inline-block;
+    border-radius: 50%;
+    border-color: rgba(0,0,0,0);
+
+    &::after {
+      transition: transform 100ms ease;
+    }
+  }
+
+  .toggle-overlay-btn:focus {
+    outline: none;
+  }
+
   .hero-overlay {
     position: absolute;
     top: 0;
@@ -93,19 +180,19 @@ $space: 1rem;
     padding: 0.4rem;
     border-radius: $common-border-radius;
     transform: translateY(calc(100% - 5rem));
-    transition: transform 200ms ease-in;
+    transition: transform 240ms ease-in;
 
     .hero-movies {
       position: absolute;
-      overflow-y: scroll;
+      overflow-y: auto;
       max-height: 125px;
-      transform: translateY(120%);
-      transition: transform 100ms ease-in;
+      transform: translateY(180%);
+      transition: transform 150ms ease-in;
       font-size: 0.8rem;
     }
 
     &.show {
-      transform: translateY(20%);
+      transform: translateY(2.5rem);
 
       .hero-movies {
         transform: translateY(1rem);
